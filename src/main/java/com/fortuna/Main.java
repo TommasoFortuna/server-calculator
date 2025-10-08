@@ -26,40 +26,44 @@ public class Main {
             int n2 = Integer.parseInt(in.readLine());
             op = Integer.parseInt(in.readLine());
 
-            out.println(svolgiOperazione(n1, n2, op));
+            if (op == 0) {
+                out.println("Connection closed");
+                break;
 
-        } while (op != 0);
+            }
+
+            float ris;
+
+            switch (op) {
+                case 1:
+                    ris = n1 + n2;
+                    break;
+
+                case 2:
+                    ris = n1 - n2;
+                    break;
+
+                case 3:
+                    ris = (float) n1 / n2;
+                    break;
+
+                case 4:
+                    ris = n1 * n2;
+                    break;
+
+                default:
+                    ris = -1;
+                    break;
+            }
+
+            if (ris == -1)
+                out.println("error 104");
+            else
+                out.println(ris);
+
+        } while (true);
 
         mioServerSocket.close();
 
-    }
-
-    public static float svolgiOperazione(int num1, int num2, int ope) throws Exception {
-
-        float ris;
-
-        switch (ope) {
-            case 1:
-                ris = num1 + num2;
-                break;
-
-            case 2:
-                ris = num1 - num2;
-                break;
-
-            case 3:
-                ris = num1 / num2;
-                break;
-
-            case 4:
-                ris = num1 * num2;
-                break;
-
-            default:
-                throw new Exception("Codice operazione non valido");
-
-        }
-
-        return ris;
     }
 }
