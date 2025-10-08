@@ -20,19 +20,23 @@ public class Main {
         out.println("Versione server: 1.2");
         System.out.println(in.readLine());
 
-        int n1 = Integer.parseInt(in.readLine());
-        int n2 = Integer.parseInt(in.readLine());
-        int op = Integer.parseInt(in.readLine());
+        int op;
+        do {
+            int n1 = Integer.parseInt(in.readLine());
+            int n2 = Integer.parseInt(in.readLine());
+            op = Integer.parseInt(in.readLine());
 
-        out.println(svolgiOperazione(n1, n2, op));
+            out.println(svolgiOperazione(n1, n2, op));
+
+        } while (op != 0);
 
         mioServerSocket.close();
 
     }
 
-    public static double svolgiOperazione(int num1, int num2, int ope) throws Exception {
+    public static float svolgiOperazione(int num1, int num2, int ope) throws Exception {
 
-        double ris;
+        float ris;
 
         switch (ope) {
             case 1:
